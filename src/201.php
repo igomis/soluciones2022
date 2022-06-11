@@ -3,7 +3,8 @@
 <?php
     // Tres maneres diverses de mostrar codi per pantalla utilitzan php
     /*
-       Tot dins d'un pàgina
+
+        Tot dins d'un pàgina
             HTML
     */
 ?>
