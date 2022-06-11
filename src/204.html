@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulari Dades</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <form method="post" action="204.php">
+        <div class="form-group row">
+            <label for="nom" class="col-4 col-form-label">Nom</label>
+            <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-address-book"></i>
+                        </div>
+                    </div>
+                    <input id="nom" name="nom" placeholder="Escriu el teu nom" type="text" required="required" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="cognom1" class="col-4 col-form-label">Primer Cognom</label>
+            <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-address-card-o"></i>
+                        </div>
+                    </div>
+                    <input id="cognom1" name="cognom1" placeholder="Escriu el teu primer cognom" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="cognom2" class="col-4 col-form-label">Segon Cognom</label>
+            <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-address-card-o"></i>
+                        </div>
+                    </div>
+                    <input id="cognom2" name="cognom2" placeholder="Escriu el teu segon cognom" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="email" class="col-4 col-form-label">Email</label>
+            <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-envelope-open-o"></i>
+                        </div>
+                    </div>
+                    <input id="email" name="email" placeholder="Escriu el teu email" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="any" class="col-4 col-form-label">Any de naixement</label>
+            <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-birthday-cake"></i>
+                        </div>
+                    </div>
+                    <input id="any" name="any" placeholder="Escriu el teu any de naixement" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="telefon" class="col-4 col-form-label">Telèfon</label>
+            <div class="col-8">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                    </div>
+                    <input id="telefon" name="telefon" placeholder="Escriu el teu telèfon" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-4 col-8">
+                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

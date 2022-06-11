@@ -1,0 +1,19 @@
+{
+    "name": "igomis/phpserve",
+    "autoload": {
+        "psr-4": {
+            "Igomis\\Phpserve\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "igomis",
+            "email": "igomis@cipfpbatoi.es"
+        }
+    ],
+    "require-dev": {
+        "codeception/codeception": "^4.1",
+        "codeception/module-phpbrowser": "^1.0.0",
+        "codeception/module-asserts": "^1.0.0"
+    }
+}
