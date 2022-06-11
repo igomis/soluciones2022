@@ -1,0 +1,26 @@
+{
+  "name": "codeception-igomis-soluciones",
+  "description": "Fitxer configuracion travis amb codeception",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "igomis",
+      "homepage": "https://github.com/igomis/soluciones2022"
+    }
+  ],
+  "require": {
+    "php": ">=8.1.0"
+  },
+  "require-dev": {
+    "codeception/codeception": ">=4.1.0"
+  },
+  "scripts": {
+    "test": "./vendor/bin/codecept run --no-interaction"
+  },
+  "config": {
+    "preferred-install": "dist",
+    "optimize-autoloader": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
