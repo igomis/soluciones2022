@@ -1,9 +1,6 @@
 # Travis CI configuration file.
 
 language: php
-cache:
-  paths:
-- vendor/
 
 php:
 - 8.1
@@ -11,7 +8,7 @@ php:
 
 before_script:
   # Start up a web server.
- - php -S localhost:8085 --docroot /src &>/dev/null&
+- php -S localhost:8085 --docroot /src &>/dev/null&
 # Install Codeception.
 # Doing this last gives the webdriver and server time to start up.
 - composer install --prefer-source
