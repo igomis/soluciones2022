@@ -4,7 +4,10 @@
 # Perform tests in browser using the WebDriver or PhpBrowser.
 # If you need both WebDriver and PHPBrowser tests - create a separate suite.
 
-class_name: AcceptanceTester
+actor: AcceptanceTester
 modules:
     enabled:
-        - WPWebDriver
+        - PhpBrowser:
+            url: http://localhost:8085
+        - \Helper\Acceptance
+step_decorators: ~
