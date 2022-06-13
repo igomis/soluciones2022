@@ -14,7 +14,7 @@ if (isset($base) && isset($exponent)){
     for ($i=0;$i<$exponent;$i++){
         $potencia *= $base;
     }
-    echo $base.'^'.$exponent.' = '.$potencia;
+    echo $base.'^'.$exponent.' = '. $potencia;
 } else {
     ?>
     Posa la base i l'exponent a les variables base i exponent pel QueryString
