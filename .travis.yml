@@ -1,17 +1,17 @@
 # Travis CI configuration file.
 
 language: php
+addons:
+  chrome: beta
+before_install:
+  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
 cache:
   apt: true
 php:
 - 8.1
 
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
-  - rackup  # start a Web server
-  - sleep 3 # give Web server some time to bind to sockets, etc
+# Install Codeception.
 # Doing this last gives the webdriver and server time to start up.
 - composer install --prefer-source
 
