@@ -11,10 +11,8 @@ before_script:
 # Start up the webdriver.
 - phantomjs --webdriver=4444 >/dev/null 2>&1 &
 # Install Codeception.
-- composer require "codeception/codeception" --dev
-- php vendor/bin/codecept bootstrap
 # Doing this last gives the webdriver and server time to start up.
 - composer install --prefer-source
 
 script:
-- php vendor/bin/codecept init acceptance
+- vendor/bin/codecept init acceptance
