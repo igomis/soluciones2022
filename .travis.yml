@@ -1,6 +1,7 @@
 # Travis CI configuration file.
 
 language: php
+cache: bundler
 
 php:
 - 8.1
