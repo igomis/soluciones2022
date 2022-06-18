@@ -2,13 +2,18 @@
 
 language: php
 
+cache:
+  directories:
+    - /vendor/
 php:
 - 8.1
 
 
 before_script:
   # Start up a web server.
-- php -S localhost:8085 --docroot /src &>/dev/null&
+- npm install selenium-standalone -g
+  selenium-standalone install
+- selenium-standalone start
 # Install Codeception.
 # Doing this last gives the webdriver and server time to start up.
 - composer install --prefer-source
