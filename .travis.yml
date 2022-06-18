@@ -8,12 +8,11 @@ cache:
 php:
 - 8.1
 
+addons:
+  chrome: stable
 
 before_script:
-  # Start up a web server.
-- npm install selenium-standalone -g
-  selenium-standalone install
-- selenium-standalone start
+
 # Install Codeception.
 # Doing this last gives the webdriver and server time to start up.
 - composer install --prefer-source

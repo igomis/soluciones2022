@@ -9,6 +9,5 @@ modules:
     enabled:
         - WebDriver:
             url: http://localhost
-            browser: chrome
         - \Helper\Acceptance
 step_decorators: ~
