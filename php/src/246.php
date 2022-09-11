@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    $usuaris = include_once('245passwords.php');
+    $usuaris = include_once('247passwords.php');
 ?>
 <head>
     <meta charset="UTF-8">
@@ -21,7 +21,7 @@
             }
         }
 ?>
-<form method="post" action="245.php">
+<form method="post" action="247.php">
     <div class="form-group row">
         <label for="usuari" class="col-4 col-form-label">Nom usuari</label>
         <div class="col-8">

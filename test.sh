@@ -1,0 +1,1 @@
+php php/vendor/bin/codecept run -c ./php/ --html

@@ -18,46 +18,46 @@ class FuncionsCest
 
     public function try244WorksTest(AcceptanceTester $I)
     {
-        $I->amOnPage('/244.php');
+        $I->amOnPage('/244a.php');
         $I->see('Dades incorrectes');
-        $I->amOnPage('/244.php?quantitat=hola');
+        $I->amOnPage('/244a.php?quantitat=hola');
         $I->see('Dades incorrectes');
-        $I->amOnPage('/244.php?quantitat=2');
+        $I->amOnPage('/244a.php?quantitat=2');
         $I->fillField('nom0', 'Pa');
         $I->fillField('nom1', 'Oli');
         $I->fillField('preu0', '1.5');
         $I->fillField('preu1', '0.5');
         $I->click('submit');
-        $I->seeInCurrentUrl('/244.php');
+        $I->seeInCurrentUrl('/244b.php');
         $I->see('249');
         $I->see('83');
         $I->see('332');
-        $I->amOnPage('/244.php?quantitat=2');
+        $I->amOnPage('/244a.php?quantitat=2');
         $I->fillField('nom0', 'Pa');
         $I->fillField('nom1', 'Oli');
         $I->fillField('preu0', '1.5');
         $I->fillField('preu1', 'hola');
         $I->click('submit');
-        $I->seeInCurrentUrl('/244.php');
+        $I->seeInCurrentUrl('/244b.php');
         $I->see('249');
 
     }
 
-    public function try245WorksTest(AcceptanceTester $I)
+    public function try246WorksTest(AcceptanceTester $I)
     {
-        $I->amOnPage('/245.php');
+        $I->amOnPage('/246.php');
         $I->fillField('usuari', 'Pa');
         $I->fillField('password', 'Oli');
         $I->click('submit');
-        $I->seeInCurrentUrl('/245.php');
+        $I->seeInCurrentUrl('/246.php');
         $I->see('Usuari no existent');
-        $I->amOnPage('/245.php');
+        $I->amOnPage('/246.php');
         $I->fillField('usuari', 'ignasi');
         $I->fillField('password', 'hola');
         $I->click('submit');
-        $I->seeInCurrentUrl('/245.php');
+        $I->seeInCurrentUrl('/246.php');
         $I->see('Password incorrecte');
-        $I->amOnPage('/245.php');
+        $I->amOnPage('/246.php');
         $I->fillField('usuari', 'ignasi');
         $I->fillField('password', 'natxo');
         $I->click('submit');
