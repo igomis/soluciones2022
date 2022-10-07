@@ -9,18 +9,10 @@
 </head>
 <body>
 <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $vocals = vocals($_POST['frase']);
-    $total = array_sum($vocals);
-    foreach ($vocals as $vocal => $times){
-        if ($times){
-            echo "<p>Hi ha $times $vocal</p>";
-        }
-    }
-
-    echo "<p>Hi ha $total vocals";
+    echo frasesImparelles($_POST['frase']);
 }
 ?>
-<form method="post" action="251.php">
+<form method="post" action="250.php">
     <div class="form-group row">
         <label for="frase" class="col-4 col-form-label">Introdueix frase</label>
         <div class="col-8">

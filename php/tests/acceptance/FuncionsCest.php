@@ -43,21 +43,54 @@ class FuncionsCest
 
     }
 
+    public function try245WorksTest(AcceptanceTester $I)
+    {
+        $I->amOnPage('/245a.php');
+        $I->see('Dades incorrectes');
+        $I->amOnPage('/245a.php?quantitat=hola');
+        $I->see('Dades incorrectes');
+        $I->see('Supermercat Sever');
+        $I->see('El teu supermercat de confiança');
+        $I->amOnPage('/245a.php?quantitat=2');
+        $I->fillField('nom0', 'Pa');
+        $I->fillField('nom1', 'Oli');
+        $I->fillField('preu0', '1.5');
+        $I->fillField('preu1', '0.5');
+        $I->click('submit');
+        $I->seeInCurrentUrl('/245b.php');
+        $I->see('249');
+        $I->see('83');
+        $I->see('332');
+        $I->see('Supermercat Sever');
+        $I->see('El teu supermercat de confiança');
+        $I->amOnPage('/245a.php?quantitat=2');
+        $I->fillField('nom0', 'Pa');
+        $I->fillField('nom1', 'Oli');
+        $I->fillField('preu0', '1.5');
+        $I->fillField('preu1', 'hola');
+        $I->click('submit');
+        $I->seeInCurrentUrl('/245b.php');
+        $I->see('249');
+        $I->see('Supermercat Sever');
+        $I->see('El teu supermercat de confiança');
+
+    }
+
     public function try246WorksTest(AcceptanceTester $I)
     {
-        $I->amOnPage('/246.php');
+        $I->amOnPage('/246.html');
         $I->fillField('usuari', 'Pa');
         $I->fillField('password', 'Oli');
         $I->click('submit');
         $I->seeInCurrentUrl('/246.php');
         $I->see('Usuari no existent');
-        $I->amOnPage('/246.php');
+        $I->amOnPage('/246.html');
         $I->fillField('usuari', 'ignasi');
         $I->fillField('password', 'hola');
         $I->click('submit');
         $I->seeInCurrentUrl('/246.php');
         $I->see('Password incorrecte');
-        $I->amOnPage('/246.php');
+        $I->amOnPage('/246.html');
         $I->fillField('usuari', 'ignasi');
         $I->fillField('password', 'natxo');
         $I->click('submit');

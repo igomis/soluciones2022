@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    include_once('functions.php');
+    $usuaris = include_once('functions.php');
 ?>
 <head>
     <meta charset="UTF-8">
@@ -9,18 +9,14 @@
 </head>
 <body>
 <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $vocals = vocals($_POST['frase']);
-    $total = array_sum($vocals);
-    foreach ($vocals as $vocal => $times){
-        if ($times){
-            echo "<p>Hi ha $times $vocal</p>";
-        }
+    echo "<p>Nombre de caracters: ".qLletres($_POST['frase'])."</p>";
+    echo "<p>Nombre de paraules: ".str_word_count($_POST['frase'],0)."</p>";
+    foreach (str_word_count($_POST['frase'],1) as $word){
+        echo "<p>$word de ".qLletres($word)." caracters</p>";
     }
-
-    echo "<p>Hi ha $total vocals";
 }
 ?>
-<form method="post" action="251.php">
+<form method="post" action="252b.php">
     <div class="form-group row">
         <label for="frase" class="col-4 col-form-label">Introdueix frase</label>
         <div class="col-8">

@@ -92,9 +92,52 @@
         return $vocals;
     }
 
+    function qLletres(string $cadena):int {
+        return strlen(str_replace(" ","", $cadena));
+    }
+
+    function countWords(string $cadena):int {
+        return count(explode(' ',$cadena));
+    }
+
+    function cani(string $cadena):string {
+        $final = "";
+        for($i=0;$i<strlen($cadena);$i++){
+            $final .= esParell($i)?strtoupper($cadena[$i]):strtolower($cadena[$i]);
+        }
+        return $final;
+    }
+
+    function palindromo(string $cadena):bool {
+        $cadenaTractada = strtolower(str_replace(" ","", $cadena));
+        return (strrev($cadenaTractada) == $cadenaTractada) ? 1 : 0;
+    }
+
+    function codifica(string $cadena,int $desplaz):string {
+        if ($desplaz > 7) return $cadena;
+        $final = "";
+        for($i=0;$i<strlen($cadena);$i++){
+            $asci = ord($cadena[$i])+$desplaz;
+            if (($asci > 122) || ($asci > 90 && $asci < 97)) $asci -= 26;
+            $final .= chr($asci);
+        }
+        return $final;
+    }
+
+    function parells(array $numeros):array{
+        $parells = [];
+        foreach ($numeros as $numero){
+            if (esParell((int) $numero)) {
+                $parells[] = $numero;
+            }
+        }
+        return $parells;
+    }
+
+
+
     function eliminar_tildes($cadena){
 
-        //Codificamos la cadena en formato utf8 en caso de que nos de errores
 
         //Ahora reemplazamos las letras
         $cadena = str_replace(
@@ -131,3 +174,60 @@
 
         return $cadena;
     }
+
+function vell(array $dates):mixed{
+    $vell = "9999/12/31";
+    foreach ($dates as $key => $dada){
+        if (fecha_inglesa($dada) < $vell){
+            $vell = fecha_inglesa($dada);
+            $index = $key;
+        }
+    }
+    return $index;
+}
+
+function fecha_inglesa($data){
+    $arrFec = explode('.',$data);
+    return $arrFec[2].'/'.$arrFec[1]."/".$arrFec[0];
+}
+
+function any($data){
+    return substr($data,6,4);
+}
+
+function laureado(Array $clubs):mixed{
+    $quants = array_count_values($clubs);
+    asort($quants,);
+    return array_key_last($quants);
+}
+
+function jove(Array $arr1,Array $arr2):Array{
+    $index = -1;
+    $edat = 99;
+    foreach ($arr1 as $key => $value){
+        if (any($arr2[$key])-$value < $edat){
+            $index = $key;
+            $edat = any($arr2[$key])-$value;
+        }
+    }
+    return array($index,$edat);
+}
+
+
+
+
+
+function array_column_ext($array, $columnkey, $indexkey = null) {
+    $result = array();
+    foreach ($array as $subarray => $value) {
+        if (array_key_exists($columnkey,$value)) { $val = $array[$subarray][$columnkey]; }
+        else if ($columnkey === null) { $val = $value; }
+        else { continue; }
+
+        if ($indexkey === null) { $result[] = $val; }
+        elseif ($indexkey == -1 || array_key_exists($indexkey,$value)) {
+            $result[($indexkey == -1)?$subarray:$array[$subarray][$indexkey]] = $val;
+        }
+    }
+    return $result;
+}

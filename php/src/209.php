@@ -10,7 +10,7 @@
 <body>
     <?php
 
-        if (isset($numero1) && isset($numero2) && isset($numero3)){
+        if (isset($numero1,$numero2,$numero3)){
             echo "El nombre més gran entre $numero1, $numero2 i $numero3 és el ";
             if ($numero2 > $numero3){
                 if ($numero1 > $numero2){

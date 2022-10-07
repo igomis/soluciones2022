@@ -9,7 +9,7 @@ class FunctionsTest extends \Codeception\Test\Unit
     
     protected function _before()
     {
-        include_once('./php/src/functions.php');
+        include_once('./src/functions.php');
     }
 
     protected function _after()
@@ -90,6 +90,39 @@ class FunctionsTest extends \Codeception\Test\Unit
 
     public function test251vocals(){
         $this->assertEquals(3,vocals('HolÀ amigá')['a']);
+    }
+
+    public function test252qLletres(){
+        $this->assertEquals(13,qLletres('Hello my friend'));
+    }
+    public function test252countWords(){
+        $this->assertEquals(3,countWords('Hello my friend'));
+    }
+
+    public function test253cani(){
+        $this->assertEquals('HoLa cOcOdRiLo',cani('Hola cocodrilo'));
+    }
+
+    public function test254Palindromo(){
+        $this->assertEquals(1,palindromo('arroz a la zorra'));
+        $this->assertEquals(1,palindromo('Arroz a la zorra'));
+        $this->assertEquals(0,palindromo('arroz a la cubana'));
+    }
+
+    public function test255codifica(){
+        $this->assertEquals('Ipmb',codifica('Hola',1));
+        $this->assertEquals(codifica('Ipmb',1),codifica('Hola',2));
+        $this->assertEquals('Bsspa',codifica('Arroz',1));
+        $this->assertEquals(codifica('Bsspa',3),codifica('Arroz',4));
+        $this->assertEquals('BsspA',codifica('ArroZ',1));
+        $this->assertEquals(codifica('BsspA',5),codifica('ArroZ',6));
+    }
+
+    public function test256parells(){
+        $this->assertContains(2,parells([1,2,3,4,5]));
+        $this->assertContains(4,parells([1,2,3,4,5]));
+        $this->assertNotContains(3,parells([1,2,3,4,5]));
+        $this->assertNotContains(6,parells([1,2,3,4,5]));
     }
 
 }
