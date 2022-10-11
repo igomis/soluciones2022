@@ -1,20 +1,10 @@
 <?php
 
-class Persona7
+abstract class Person
 {
+    const EDAD_LIMITE = 66;
+    protected static  $limite_sueldo = self::EDAD_LIMITE;
     protected $nombre,$apellidos,$edat;
-
-    /**
-     * @param $nombre
-     * @param $apellidos
-     * @param $edat
-     */
-    public function __construct($nombre, $apellidos, $edat=25)
-    {
-        $this->nombre = $nombre;
-        $this->apellidos = $apellidos;
-        $this->edat = $edat;
-    }
 
     /**
      * @return mixed
@@ -74,10 +64,17 @@ class Persona7
 
     public function estaJubilado(): bool
     {
-        return $this->edat > 66;
+        return $this->edat > self::$limite_sueldo;
     }
 
+    public static function modificaLimite(int $limite){
+        self::$limite_sueldo = $limite;
+    }
 
+    abstract public static function toHtml(Person $p): string;
 
+    public function __toString(): string{
+        return "<p>".$this->getNombre()." ".$this->getApellidos()."</p>";
+    }
 
 }

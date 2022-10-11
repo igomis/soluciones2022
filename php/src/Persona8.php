@@ -1,7 +1,5 @@
 <?php
 
-namespace Igomis\Phpserve;
-
 class Persona8
 {
     const EDAD_LIMITE = 66;
@@ -80,6 +78,14 @@ class Persona8
 
     public static function modificaLimite(int $limite){
         self::$limite_sueldo = $limite;
+    }
+
+    public static function toHtml(Persona8 $p): string{
+        $parragraf = "<p>".$p->getNombre()." ".$p->getApellidos()."</p>";
+        return $parragraf;
+    }
+    public function __toString(): string{
+        return "<p>".$this->getNombre()." ".$this->getApellidos()."</p>";
     }
 
 }

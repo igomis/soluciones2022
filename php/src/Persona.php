@@ -1,7 +1,5 @@
 <?php
 
-namespace Igomis\Phpserve;
-
 class Persona
 {
     protected $nombre,$apellidos,$edat;

@@ -1,25 +1,9 @@
 <?php
 
-class Empleado extends Persona8
+
+abstract class Worker extends Person
 {
     protected $telefonos = array();
-    protected $sueldo;
-
-    /**
-     * @return mixed
-     */
-    public function getSueldo()
-    {
-        return $this->sueldo;
-    }
-
-    /**
-     * @param mixed $sueldo
-     */
-    public function setSueldo($sueldo): void
-    {
-        $this->sueldo = $sueldo;
-    }
 
     public function anyadirTelefono(int $telefono):void
     {
@@ -45,16 +29,8 @@ class Empleado extends Persona8
     }
 
 
-    public static function toHtml(Persona8 $p): string{
-        $parragraf = Persona8::toHtml($p);
-        if ($p instanceof Empleado) {
-            $parragraf .= "<ul>";
-            foreach ($p->getTelefonos() as $telefono) {
-                $parragraf .= "<li>$telefono</li>";
-            }
-            $parragraf .= "</ul>";
-        }
-        return $parragraf;
+    public static function toHtml(Person $p): string{
+        return "<p>".$p->getNombreCompleto()."</p>";
     }
 
     public function __toString(): string{
@@ -67,6 +43,22 @@ class Empleado extends Persona8
 
     public function debePagarImpuestos(): bool
     {
-        return $this->getSueldo() > 3333;
+        return static::calcularSueldo() > 3333;
     }
+
+    public function toJSON(): string
+    {
+        $mapa = array();
+        foreach ($this as $clave => $valor) {
+            $mapa[$clave] = $valor; }
+        return json_encode($mapa);
+    }
+
+    public function toSerialize(): string
+    {
+        return serialize($this);
+    }
+
+
+    abstract function calcularSueldo(): float;
 }
