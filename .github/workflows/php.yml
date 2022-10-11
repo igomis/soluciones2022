@@ -11,14 +11,13 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
 
     - name: Validate composer.json and composer.lock
-      run: php/composer validate --strict
+      working-directory: php
+      run: composer validate --strict
 
     - name: Cache Composer packages
       id: composer-cache
@@ -30,10 +29,12 @@ jobs:
           ${{ runner.os }}-php-
 
     - name: Install dependencies
+      working-directory: php
       run: composer install --prefer-dist --no-progress
       
-    - name: Run test  
-      run: php/vendor/bin/codecept run
+    - name: Run test
+      working-directory: php
+      run: vendor/bin/codecept run
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
