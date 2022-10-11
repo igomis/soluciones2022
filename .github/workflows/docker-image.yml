@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       run: docker compose up -d
     - name: Run composer
-      run: docker container exec -it php composer update
+      run: docker container exec php composer update
     - name: Run test
-      run: docker container exec -it php ./vendor/bin/codecept run 
+      run: docker container exec php ./vendor/bin/codecept run
     
