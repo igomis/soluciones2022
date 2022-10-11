@@ -15,8 +15,6 @@ jobs:
 
     steps:
       - name: Start Containers
-        with:
-          context: .
         run: docker-compose -f 'docker-compose.yaml' up -d --build
 
       - name: Install dependencies
@@ -24,5 +22,3 @@ jobs:
 
       - name: Run test
         run: docker container exec -it php ./vendor/bin/codecept run
-
-    
