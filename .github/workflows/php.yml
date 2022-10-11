@@ -18,6 +18,7 @@ jobs:
       id: composer-cache
       uses: actions/cache@v3
       with:
+        compose-file: docker-compose.yaml
         path: php/vendor
         key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
@@ -26,10 +27,9 @@ jobs:
     - name: Install dependencies
       working-directory: php
       run: composer install --prefer-dist --no-progress
-      
+
     - name: Run test
-      working-directory: php
-      run: systemctl status docker
+      run: test.sh
 
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
