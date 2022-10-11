@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Start Containers
-        run: docker-compose -f "docker-compose.yaml" up -d --build
+        run: docker-compose -f '/docker-compose.yaml' up -d --build
 
       - name: Install dependencies
         run: docker container exec -it php composer update
