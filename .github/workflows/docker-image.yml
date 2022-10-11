@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker-compose . --file docker-compose.yaml up -d --build
+      run: docker compose up -d
     - name: Run composer
       run: docker container exec -it php composer update
     - name: Run test
