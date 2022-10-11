@@ -12,30 +12,15 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v3
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v3
-      with:
-        compose-file: docker-compose.yaml
-        path: php/vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
+      - name: Start Containers
+        run: docker-compose up -d --build
 
-    - name: Install dependencies
-      working-directory: php
-      run: composer install --prefer-dist --no-progress
+      - name: Install dependencies
+        run: docker container exec -it php composer update
 
-    - name: Run test
-      run: sh test.sh
+      - name: Run test
+        run: docker container exec -it php ./vendor/bin/codecept run
 
-
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-    # - name: Run test suite
-    #   run: composer run-script test
-    
     
