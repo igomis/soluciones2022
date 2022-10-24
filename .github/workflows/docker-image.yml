@@ -20,4 +20,3 @@ jobs:
       run: docker container exec php composer update
     - name: Run test
       run: docker container exec php ./vendor/bin/codecept run
-    
