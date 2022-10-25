@@ -4,11 +4,19 @@ class FormulariosCest
 {
     public function _before(AcceptanceTester $I) {}
 
-    public function try401Test(AcceptanceTester $I)
+    public function try406Test(AcceptanceTester $I)
     {
-        $I->amOnPage('/401.php');
-        $I->see("PHP_SELF' => string '/401.php' (length=8)");
-        $I->see("'PWD' => string '/var/www/php'");
+        $I->amOnPage('/406.php');
+        $I->seeInSource('<input type="button" value="1"/>');
+        $I->amOnPage('/406.php');
+        $I->seeInSource('<input type="button" value="2"/>');
+        $I->amOnPage('/406.php');
+        $I->seeInSource('<input type="button" value="3"/>');
+        $I->amOnPage('/406.php');
+        $I->seeInSource('<input type="button" value="4"/>');
+        $I->click('submit');
+        $I->seeInCurrentUrl('/406.php');
+        $I->seeInSource('<input type="button" value="1"/>');
     }
 
     public function try401ParamTest(AcceptanceTester $I)
