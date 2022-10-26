@@ -1,10 +1,14 @@
 <?php
+session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    setcookie('color', $_POST['color'],time()+(3600*24));
+    $_SESSION['color'] = $_POST['color'];
     $color = $_POST['color'];
 } else {
-    if (isset($_COOKIE['color'])){
-        $color = $_COOKIE['color'];
+    if ($_GET['buidar'] == 'sessio'){
+       unset($_SESSION['color']);
+    }
+    if (isset($_SESSION['color'])){
+        $color = $_SESSION['color'];
     } else {
         $color = "#FFF";
     }
@@ -14,7 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 <html>
 <body bgcolor="<?= $color ?>"></body>
 </html>
-<form method="post" action="407.php">
+<form method="post" action="408.php">
     <input name="color" type="color" value="<?= $color ?>"/>
     <input type="submit" name='submit' value="seleccionar">
-</form>
+</form><br/>
+<a href="408.php?buidar=sessio">Enllaç</a>
