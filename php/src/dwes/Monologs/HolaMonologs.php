@@ -1,4 +1,14 @@
 <?php
+/**
+ * Classe que representa un Holamonolog
+ *
+ * El client s'encarrega d'emmagatzemar els suports que té llogat,
+ * de manera que podem llogar i retornar productes mitjançant les operacions
+ * homònimes.
+ *
+ * @package Dwes\Monologs\HolaMonolog
+ * @author Aitor Medrano <a.medrano@edu.gva.es>
+ */
 
 namespace Dwes\Monologs;
 

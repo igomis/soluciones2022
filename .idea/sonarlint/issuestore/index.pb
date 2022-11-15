@@ -120,3 +120,17 @@ U
 %php/tests/acceptance/FuncionsCest.php,6/2/62d6f3aa108f519148278d8e89bbea40fc5cf4d4
 ?
 php/src/407.php,2/e/2e858fecfa89585068d8416fc6a19f23d435ccd0
+?
+php/src/406.php,e/1/e1a796370953d0d66dfdd04db65e134c9635ab16
+@
+php/src/410.html,d/1/d19bb86b6ed0eb627b326b5dd0991c733affb47e
+R
+"php/tests/acceptance/LoginCest.php,e/6/e6882f15c7e075f836d77ba640e6b209099765d9
+7
+test.sh,2/a/2acc65acdda9ae987dbf8da8251ed25fe5a18110
+?
+php/src/414.php,b/7/b7ecdd4a6f096b27e08eb7c11409d863f04ab3a3
+A
+php/src/menu.html,4/6/46dd64b75d52e9c86e812b04ae4e738ccc121705
+G
+php/vendor/autoload.php,2/f/2fcf4b5a579a7a4f48d8d115a481c91e4f87522f
